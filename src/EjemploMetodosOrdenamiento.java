@@ -79,8 +79,36 @@ class MetodosOrdenamiento{
 		
 	}//OrdenamientoBurbuja2
 	
+	public static void ordenamientoBurbuja3(int []numeros) {
+		long tInicio,tFin;
+		tInicio=System.nanoTime();
+		int aux, intercambios=0, recorridos=0, comparaciones=0;
+		int i=1;
+		boolean ordenado=false;
+		do {
+			recorridos++;
+			ordenado=true;
+			for(int j=0; j<numeros.length-i; j++) {
+				comparaciones++;
+				if (numeros[j]<numeros[j+1]) {
+					ordenado=false;
+					aux = numeros[j];
+					numeros[j]=numeros[j+1];
+					numeros[j+1]=aux;
+					intercambios++;
+				}
+			}
+		}while(!(i<numeros.length || ordenado==false));
+		tFin=System.nanoTime();
+		double milliseconds = (tFin-tInicio) / 1000000.0;
+		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+		System.out.println("Recorridos: "+recorridos);
+		System.out.println("Intercambios: "+intercambios);
+		System.out.println("Comparaciones: "+comparaciones);
+	} //OrdenamientoBurbuja3
 	
-}
+}//MetodosOrdenamiento 
+
 public class EjemploMetodosOrdenamiento {
 
 	public static void main(String[] args) {
