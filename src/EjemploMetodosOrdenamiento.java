@@ -7,18 +7,18 @@ class MetodosOrdenamiento{
 		long tInicio,tFin;
 		tInicio=System.nanoTime();
 		int aux, intercambios=0, recorridos=0, comparaciones=0;
-		for(int i=0; i<numeros.length;i++) {
-			for (int j=i+1; j<=numeros.length; j++) {
-				comparaciones++;
-				if (numeros[j]>numeros[j+1]) {
-					aux =(byte)numeros[i];
-					numeros[i]=numeros[j];
-					numeros[j]=aux;
-					intercambios++;
-				}
-				recorridos++;
-			}
-		}
+		for(int i = 0; i < numeros.length - 1; i++){
+            for(int j = 0; j < numeros.length - 1; j++){
+            	comparaciones++;
+                if (numeros[j] < numeros[j + 1]){
+                    aux = numeros[j+1];
+                    numeros[j+1] = numeros[j];
+                    numeros[j] = aux;
+                    intercambios++;
+                }
+                recorridos++;
+            }
+        }
 		tFin=System.nanoTime();
 		double milliseconds = (tFin-tInicio) / 1000000.0;
 		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
@@ -81,34 +81,36 @@ class MetodosOrdenamiento{
 		
 	}//OrdenamientoBurbuja2
 	
-	public static void ordenamientoBurbuja3(int []numeros) {
-		long tInicio,tFin;
-		tInicio=System.nanoTime();
-		int aux, intercambios=0, recorridos=0, comparaciones=0;
-		int i=1;
+public static void ordenamientoBurbuja3(int[] numeros) {
+		int recorridos=0, comparaciones=0, intercambios=0;
+		long tFin, tInicio;	
+		int i=1,aux;
 		boolean ordenado;
+		tInicio = System.nanoTime();
 		do {
 			i=i+1;
-			ordenado=true;
-			for(int j=0; j<=numeros.length-i; j++) {
+			ordenado = true;
+			
+			for(int j=0; j <= numeros.length-i; j++) {
 				comparaciones++;
-				if (numeros[j]>numeros[j+1]) {
-					//ordenado=false;
-					aux = numeros[j];
-					numeros[j]=numeros[j+1];
-					numeros[j+1]=aux;
+				if(numeros[j] > numeros[j+1]) {
 					intercambios++;
+					//ordenado = false;
+					aux = numeros[j];
+					numeros[j] = numeros[j+1];
+					numeros[j+1] = aux;
 				}
 				recorridos++;
 			}
-		}while(i<numeros.length || ordenado==true);
-		tFin=System.nanoTime();
+		} while( (i < numeros.length) && (ordenado == true) );
+		 tFin=System.nanoTime();
 		double milliseconds = (tFin-tInicio) / 1000000.0;
-		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
-		System.out.println("Recorridos: "+recorridos);
-		System.out.println("Intercambios: "+intercambios);
-		System.out.println("Comparaciones: "+comparaciones);
-	} //OrdenamientoBurbuja3
+ 		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+ 		System.out.println("Recorridos: "+recorridos);
+ 		System.out.println("Intercambios: "+intercambios);
+ 		System.out.println("Comparaciones: "+comparaciones);
+		
+	}
 	
 	public static void ordenamientoPorSeleccion(int []numeros) {
 		int recorridos=0, intercambios=0, comparaciones=0;
@@ -322,7 +324,7 @@ public class EjemploMetodosOrdenamiento {
 			MetodosOrdenamiento.mostarVector(copiaVector7);
 			MetodosOrdenamiento.ordenamientoPorSeleccion(copiaVector7);
 			MetodosOrdenamiento.mostarVector(copiaVector7);
-			/*System.out.println("*************Arreglo con 100,000 datos************");
+			System.out.println("*************Arreglo con 100,000 datos************");
 			System.out.print("Vector original: ");
 			MetodosOrdenamiento.mostarVector(copiaVector8);
 			MetodosOrdenamiento.ordenamientoPorSeleccion(copiaVector8);
@@ -331,7 +333,7 @@ public class EjemploMetodosOrdenamiento {
 			System.out.print("Vector original: ");
 			MetodosOrdenamiento.mostarVector(copiaVector9);
 			MetodosOrdenamiento.ordenamientoPorSeleccion(copiaVector9);
-			MetodosOrdenamiento.mostarVector(copiaVector9);*/
+			MetodosOrdenamiento.mostarVector(copiaVector9);
 			break;
 			
 			case 3:int [] copiaVector3=arregloDesordenado1.clone();
