@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 class MetodosOrdenamiento{
@@ -175,6 +176,25 @@ public class EjemploMetodosOrdenamiento {
 	public static void main(String[] args) {
 		Scanner entrada = new Scanner (System.in);
 		byte menu=0, submenu=0;
+		int [] arregloDesordenado1= new int [100];
+		int [] arregloDesordenado2= new int [10000];
+		int [] arregloDesordenado3= new int [100000];
+		int [] arregloDesordenado4= new int [1000000];
+		
+		Random numeroAleatorio =new Random();
+		for(int i=0; i<arregloDesordenado1.length; i++) {
+			arregloDesordenado1[i]=numeroAleatorio.nextInt(100);
+		}
+		for(int i=0; i<arregloDesordenado2.length; i++) {
+			arregloDesordenado2[i]=numeroAleatorio.nextInt(100);
+		}
+		for(int i=0; i<arregloDesordenado3.length; i++) {
+			arregloDesordenado3[i]=numeroAleatorio.nextInt(100);
+		}
+		for(int i=0; i<arregloDesordenado4.length; i++) {
+			arregloDesordenado4[i]=numeroAleatorio.nextInt(100);
+		}
+		
 		do {
 			System.out.println("------------------Menu------------------");
 			System.out.println("1. Ordenamiento Burbuja");
@@ -184,17 +204,39 @@ public class EjemploMetodosOrdenamiento {
 			menu=entrada.nextByte();
 			switch(menu) {
 			case 1:
+				int [] copiaVector1=arregloDesordenado1.clone();
+				System.out.println("\n==================ORDENAMIENTO CON BURBUJA====================");
 				System.out.println("1. Burbuja0");
 				System.out.println("2. Burbuja1");
 				System.out.println("3. Burbuja2");
 				System.out.println("4. Burbuja3");
 				submenu=entrada.nextByte();
 				switch(submenu) {
-				case 1:
-				case 2:
-				case 3:
-				case 4:
-				default:
+				case 1:System.out.println("*********Burbuja0*********");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector1);
+				MetodosOrdenamiento.ordenamientoBurbuja0(copiaVector1);
+				MetodosOrdenamiento.mostarVector(copiaVector1);
+				break;
+				case 2:System.out.println("*********Burbuja1*********");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector1);
+				MetodosOrdenamiento.ordenamientoBurbuja1(copiaVector1);
+				MetodosOrdenamiento.mostarVector(copiaVector1);
+				break;
+				case 3:System.out.println("*********Burbuja2*********");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector1);
+				MetodosOrdenamiento.ordenamientoBurbuja2(copiaVector1);
+				MetodosOrdenamiento.mostarVector(copiaVector1);
+				break;
+				case 4:System.out.println("*********Burbuja3*********");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector1);
+				MetodosOrdenamiento.ordenamientoBurbuja3(copiaVector1);
+				MetodosOrdenamiento.mostarVector(copiaVector1);
+				break;
+				default:System.out.println("Opcion incorrecta!!");
 				}
 				break;
 			case 2:
@@ -204,27 +246,9 @@ public class EjemploMetodosOrdenamiento {
 			}
 		}while(menu!=4);
 		// Menu
-				System.out.println("\n==================ORDENAMIENTO CON BURBUJA====================");
-				System.out.println("*********Burbuja0*********");
-				int edades0[]= {34,25,12,87,9,10,34,37,24,2};
-				MetodosOrdenamiento.mostarVector(edades0);
-				MetodosOrdenamiento.ordenamientoBurbuja1(edades0);
-				MetodosOrdenamiento.mostarVector(edades0);
-				System.out.println("*********Burbuja1*********");
-				int edades[]= {34,25,12,87,9,10,34,37,24,2};
-				MetodosOrdenamiento.mostarVector(edades);
-				MetodosOrdenamiento.ordenamientoBurbuja1(edades);
-				MetodosOrdenamiento.mostarVector(edades);
-				System.out.println("*********Burbuja2*********");
-				int edadesb1[]= {34,25,12,87,9,10,34,37,24,2};
-				MetodosOrdenamiento.mostarVector(edadesb1);
-				MetodosOrdenamiento.ordenamientoBurbuja2(edadesb1);
-				MetodosOrdenamiento.mostarVector(edadesb1);
-				System.out.println("*********Burbuja3*********");
-				int edadesb2[]= {34,25,12,87,9,10,34,37,24,2};
-				MetodosOrdenamiento.mostarVector(edadesb2);
-				//MetodosOrdenamiento.ordenamientoBurbuja3(edadesb2);
-				MetodosOrdenamiento.mostarVector(edadesb2);
+				
+				
+				
 				System.out.println("\n==================ORDENAMIENTO CON SELECCION====================");
 				int edades2[]= {34,25,12,87,9,10,34,37,24,2};
 				MetodosOrdenamiento.mostarVector(edades2);
