@@ -1,4 +1,4 @@
-
+import java.util.Arrays;
 
 class MetodosOrdenamiento{
 	public static void ordenamientoBurbuja0(int numeros[]) {
@@ -163,6 +163,10 @@ class MetodosOrdenamiento{
  		System.out.println("Intercambios: "+intercambios);
  		System.out.println("Comparaciones: "+comparaciones);
 	}//metodo insercionDirecta
+	
+	public static void mostarVector(int numeros[]) {
+		System.out.println(Arrays.toString(numeros));
+	}//metodo mostrarVector
 	
 }//MetodosOrdenamiento 
 
