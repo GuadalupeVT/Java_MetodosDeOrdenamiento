@@ -90,7 +90,7 @@ class MetodosOrdenamiento{
 			ordenado=true;
 			for(int j=0; j<=numeros.length-i; j++) {
 				comparaciones++;
-				if (numeros[j]<numeros[j+1]) {
+				if (numeros[j]>numeros[j+1]) {
 					//ordenado=false;
 					aux = numeros[j];
 					numeros[j]=numeros[j+1];
@@ -189,6 +189,11 @@ public class EjemploMetodosOrdenamiento {
 				MetodosOrdenamiento.mostarVector(edadesb1);
 				MetodosOrdenamiento.ordenamientoBurbuja2(edadesb1);
 				MetodosOrdenamiento.mostarVector(edadesb1);
+				System.out.println("*********Burbuja3*********");
+				int edadesb2[]= {34,25,12,87,9,10,34,37,24,2};
+				MetodosOrdenamiento.mostarVector(edadesb2);
+				MetodosOrdenamiento.ordenamientoBurbuja3(edadesb2);
+				MetodosOrdenamiento.mostarVector(edadesb2);
 
 	}
 
