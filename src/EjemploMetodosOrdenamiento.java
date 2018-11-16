@@ -213,24 +213,28 @@ public class EjemploMetodosOrdenamiento {
 				submenu=entrada.nextByte();
 				switch(submenu) {
 				case 1:System.out.println("*********Burbuja0*********");
+				System.out.println("*************Arreglo con 1000 datos************");
 				System.out.print("Vector original: ");
 				MetodosOrdenamiento.mostarVector(copiaVector1);
 				MetodosOrdenamiento.ordenamientoBurbuja0(copiaVector1);
 				MetodosOrdenamiento.mostarVector(copiaVector1);
 				break;
 				case 2:System.out.println("*********Burbuja1*********");
+				System.out.println("*************Arreglo con 1000 datos************");
 				System.out.print("Vector original: ");
 				MetodosOrdenamiento.mostarVector(copiaVector1);
 				MetodosOrdenamiento.ordenamientoBurbuja1(copiaVector1);
 				MetodosOrdenamiento.mostarVector(copiaVector1);
 				break;
 				case 3:System.out.println("*********Burbuja2*********");
+				System.out.println("*************Arreglo con 1000 datos************");
 				System.out.print("Vector original: ");
 				MetodosOrdenamiento.mostarVector(copiaVector1);
 				MetodosOrdenamiento.ordenamientoBurbuja2(copiaVector1);
 				MetodosOrdenamiento.mostarVector(copiaVector1);
 				break;
 				case 4:System.out.println("*********Burbuja3*********");
+				System.out.println("*************Arreglo con 1000 datos************");
 				System.out.print("Vector original: ");
 				MetodosOrdenamiento.mostarVector(copiaVector1);
 				MetodosOrdenamiento.ordenamientoBurbuja3(copiaVector1);
@@ -239,27 +243,30 @@ public class EjemploMetodosOrdenamiento {
 				default:System.out.println("Opcion incorrecta!!");
 				}
 				break;
-			case 2:
-			case 3:
+			
+			case 2:int [] copiaVector2=arregloDesordenado1.clone();
+			System.out.println("\n==================ORDENAMIENTO CON SELECCION====================");
+			System.out.println("*************Arreglo con 1000 datos************");
+			System.out.print("Vector original: ");
+			MetodosOrdenamiento.mostarVector(copiaVector2);
+			MetodosOrdenamiento.ordenamientoPorSeleccion(copiaVector2);
+			MetodosOrdenamiento.mostarVector(copiaVector2);
+			break;
+			
+			case 3:int [] copiaVector3=arregloDesordenado1.clone();
+			System.out.println("\n==================ORDENAMIENTO CON INSERCION====================");
+			System.out.println("*************Arreglo con 1000 datos************");
+			System.out.print("Vector original: ");
+			MetodosOrdenamiento.mostarVector(copiaVector3);
+			MetodosOrdenamiento.ordenamientoPorSeleccion(copiaVector3);
+			MetodosOrdenamiento.mostarVector(copiaVector3);
+			break;
+			
 			case 4: break;
 			default: System.out.println("Opcion incorrecta!!");
 			}
 		}while(menu!=4);
-		// Menu
-				
-				
-				
-				System.out.println("\n==================ORDENAMIENTO CON SELECCION====================");
-				int edades2[]= {34,25,12,87,9,10,34,37,24,2};
-				MetodosOrdenamiento.mostarVector(edades2);
-				MetodosOrdenamiento.ordenamientoPorSeleccion(edades2);
-				MetodosOrdenamiento.mostarVector(edades2);
-				System.out.println("\n==================ORDENAMIENTO CON INSERCION====================");
-				int edades3[]= {34,25,12,87,9,10,34,37,24,2};
-				MetodosOrdenamiento.mostarVector(edades3);
-				MetodosOrdenamiento.insercionDirecta(edades3);
-				MetodosOrdenamiento.mostarVector(edades3);
-
+		entrada.close();
 	}
 
 }
