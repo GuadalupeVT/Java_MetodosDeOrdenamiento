@@ -172,7 +172,13 @@ class MetodosOrdenamiento{
 
 public class EjemploMetodosOrdenamiento {
 	public static void main(String[] args) {
-		
+		// Menu
+				System.out.println("\n==================ORDENAMIENTO CON BURBUJA====================");
+				System.out.println("*********Burbuja0*********");
+				int edades0[]= {34,25,12,87,9,10,34,37,24,2};
+				MetodosOrdenamiento.mostarVector(edades0);
+				MetodosOrdenamiento.ordenamientoBurbuja1(edades0);
+				MetodosOrdenamiento.mostarVector(edades0);
 
 	}
 
