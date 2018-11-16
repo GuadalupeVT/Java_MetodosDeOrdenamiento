@@ -194,6 +194,11 @@ public class EjemploMetodosOrdenamiento {
 				MetodosOrdenamiento.mostarVector(edadesb2);
 				MetodosOrdenamiento.ordenamientoBurbuja3(edadesb2);
 				MetodosOrdenamiento.mostarVector(edadesb2);
+				System.out.println("\n==================ORDENAMIENTO CON SELECCION====================");
+				int edades2[]= {34,25,12,87,9,10,34,37,24,2};
+				MetodosOrdenamiento.mostarVector(edades2);
+				MetodosOrdenamiento.ordenamientoPorSeleccion(edades2);
+				MetodosOrdenamiento.mostarVector(edades2);
 
 	}
 
