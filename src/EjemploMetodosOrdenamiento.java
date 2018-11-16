@@ -138,6 +138,31 @@ class MetodosOrdenamiento{
  		System.out.println("Comparaciones: "+comparaciones);
 	}//Metodo ordenamientoPorSeleccion
 	
+	public static void insercionDirecta(int numeros[]) {
+		int j, aux;
+		long tInicio,tFin;
+		int recorridos=0, intercambios=0,comparaciones=0;
+		tInicio=System.nanoTime();
+		for(int i=1; i<numeros.length;i++) {
+			aux=numeros[i];
+			j=i-1;
+			comparaciones++;
+			while((j>=0)&& (aux<numeros[j])){
+				numeros[j+1]=numeros[j];
+				j--;
+				intercambios++;
+			}
+			numeros[j+1]=aux;
+			recorridos++;
+		}
+		tFin=System.nanoTime();
+ 		double milliseconds = (tFin-tInicio) / 1000000.0;
+ 		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+ 		System.out.println("Recorridos: "+recorridos);
+ 		System.out.println("Intercambios: "+intercambios);
+ 		System.out.println("Comparaciones: "+comparaciones);
+	}//metodo insercionDirecta
+	
 }//MetodosOrdenamiento 
 
 public class EjemploMetodosOrdenamiento {
