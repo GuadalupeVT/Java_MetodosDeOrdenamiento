@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 class MetodosOrdenamiento{
 	public static void ordenamientoBurbuja0(int numeros[]) {
@@ -172,6 +173,36 @@ class MetodosOrdenamiento{
 
 public class EjemploMetodosOrdenamiento {
 	public static void main(String[] args) {
+		Scanner entrada = new Scanner (System.in);
+		byte menu=0, submenu=0;
+		do {
+			System.out.println("------------------Menu------------------");
+			System.out.println("1. Ordenamiento Burbuja");
+			System.out.println("2. Ordenamiento Seleccion");
+			System.out.println("3. Ordenamiento Insercion");
+			System.out.println("4. Salir");
+			menu=entrada.nextByte();
+			switch(menu) {
+			case 1:
+				System.out.println("1. Burbuja0");
+				System.out.println("2. Burbuja1");
+				System.out.println("3. Burbuja2");
+				System.out.println("4. Burbuja3");
+				submenu=entrada.nextByte();
+				switch(submenu) {
+				case 1:
+				case 2:
+				case 3:
+				case 4:
+				default:
+				}
+				break;
+			case 2:
+			case 3:
+			case 4: break;
+			default: System.out.println("Opcion incorrecta!!");
+			}
+		}while(menu!=4);
 		// Menu
 				System.out.println("\n==================ORDENAMIENTO CON BURBUJA====================");
 				System.out.println("*********Burbuja0*********");
@@ -192,7 +223,7 @@ public class EjemploMetodosOrdenamiento {
 				System.out.println("*********Burbuja3*********");
 				int edadesb2[]= {34,25,12,87,9,10,34,37,24,2};
 				MetodosOrdenamiento.mostarVector(edadesb2);
-				MetodosOrdenamiento.ordenamientoBurbuja3(edadesb2);
+				//MetodosOrdenamiento.ordenamientoBurbuja3(edadesb2);
 				MetodosOrdenamiento.mostarVector(edadesb2);
 				System.out.println("\n==================ORDENAMIENTO CON SELECCION====================");
 				int edades2[]= {34,25,12,87,9,10,34,37,24,2};
