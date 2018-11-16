@@ -199,6 +199,11 @@ public class EjemploMetodosOrdenamiento {
 				MetodosOrdenamiento.mostarVector(edades2);
 				MetodosOrdenamiento.ordenamientoPorSeleccion(edades2);
 				MetodosOrdenamiento.mostarVector(edades2);
+				System.out.println("\n==================ORDENAMIENTO CON INSERCION====================");
+				int edades3[]= {34,25,12,87,9,10,34,37,24,2};
+				MetodosOrdenamiento.mostarVector(edades3);
+				MetodosOrdenamiento.insercionDirecta(edades3);
+				MetodosOrdenamiento.mostarVector(edades3);
 
 	}
 
