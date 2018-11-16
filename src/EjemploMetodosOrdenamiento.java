@@ -179,6 +179,11 @@ public class EjemploMetodosOrdenamiento {
 				MetodosOrdenamiento.mostarVector(edades0);
 				MetodosOrdenamiento.ordenamientoBurbuja1(edades0);
 				MetodosOrdenamiento.mostarVector(edades0);
+				System.out.println("*********Burbuja1*********");
+				int edades[]= {34,25,12,87,9,10,34,37,24,2};
+				MetodosOrdenamiento.mostarVector(edades);
+				MetodosOrdenamiento.ordenamientoBurbuja1(edades);
+				MetodosOrdenamiento.mostarVector(edades);
 
 	}
 
