@@ -199,6 +199,34 @@ public static void ordenamientoBurbuja3(int[] numeros) {
  		System.out.println("Comparaciones: "+comparaciones);
 	} //OrdenamientoShellsort
 	
+	public static void ordenamientoQuickSort(int numeros[], int primero, int ultimo) {
+		int i,j,pivote,aux;
+		i=primero;
+		j=ultimo;
+		pivote=numeros[primero];
+		while(i<j) {
+			while(numeros[i]<=pivote && i<j) {
+				i++;
+			}
+			while(numeros[j]>pivote) {
+				j--;
+			}
+			if(i<j) {
+				aux=numeros[i];
+				numeros[i]=numeros[j];
+				numeros[j]=aux;
+			}
+		}
+		numeros[primero]=numeros[j];
+		numeros[j]=pivote;
+		if(primero<j-1) {
+			ordenamientoQuickSort(numeros, primero, j-1);
+		}
+		if(j+1<ultimo) {
+			ordenamientoQuickSort(numeros, j+1, ultimo);
+		}
+	}//Metodo ordenamientoQuickSort
+	
 	
 	
 	public static void mostarVector(int numeros[]) {
