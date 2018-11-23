@@ -305,7 +305,10 @@ public class EjemploMetodosOrdenamiento {
 			System.out.println("1. Ordenamiento Burbuja");
 			System.out.println("2. Ordenamiento Seleccion");
 			System.out.println("3. Ordenamiento Insercion");
-			System.out.println("4. Salir");
+			System.out.println("4. Ordenamiento Shellshort");
+			System.out.println("5. Ordenamiento Quicksort");
+			System.out.println("6. Ordenamiento Radixsort");
+			System.out.println("7. Salir");
 			menu=entrada.nextByte();
 			switch(menu) {
 			case 1:
@@ -447,29 +450,130 @@ public class EjemploMetodosOrdenamiento {
 			System.out.println("*************Arreglo con 1,000 datos************");
 			System.out.print("Vector original: ");
 			MetodosOrdenamiento.mostarVector(copiaVector3);
-			MetodosOrdenamiento.ordenamientoPorSeleccion(copiaVector3);
+			MetodosOrdenamiento.insercionDirecta(copiaVector3);
 			MetodosOrdenamiento.mostarVector(copiaVector3);
 			System.out.println("*************Arreglo con 10,000 datos************");
 			System.out.print("Vector original: ");
 			MetodosOrdenamiento.mostarVector(copiaVector10);
-			MetodosOrdenamiento.ordenamientoPorSeleccion(copiaVector10);
+			MetodosOrdenamiento.insercionDirecta(copiaVector10);
 			MetodosOrdenamiento.mostarVector(copiaVector10);
 			System.out.println("*************Arreglo con 100,000 datos************");
 			System.out.print("Vector original: ");
 			MetodosOrdenamiento.mostarVector(copiaVector11);
-			MetodosOrdenamiento.ordenamientoPorSeleccion(copiaVector11);
+			MetodosOrdenamiento.insercionDirecta(copiaVector11);
 			MetodosOrdenamiento.mostarVector(copiaVector11);
 			System.out.println("*************Arreglo con 1,000,000 datos************");
 			System.out.print("Vector original: ");
 			MetodosOrdenamiento.mostarVector(copiaVector12);
-			MetodosOrdenamiento.ordenamientoPorSeleccion(copiaVector12);
+			MetodosOrdenamiento.insercionDirecta(copiaVector12);
 			MetodosOrdenamiento.mostarVector(copiaVector12);
 			break;
 			
-			case 4: break;
+			case 4: 
+				int [] copiaVector13=arregloDesordenado1.clone();
+				int [] copiaVector14=arregloDesordenado2.clone();
+				int [] copiaVector15=arregloDesordenado3.clone();
+				int [] copiaVector16=arregloDesordenado4.clone();
+				System.out.println("\n==================ORDENAMIENTO CON SHELLSORT====================");
+				System.out.println("*************Arreglo con 1,000 datos************");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector13);
+				MetodosOrdenamiento.ordenamientoShellsort(copiaVector13);
+				MetodosOrdenamiento.mostarVector(copiaVector13);
+				System.out.println("*************Arreglo con 10,000 datos************");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector14);
+				MetodosOrdenamiento.ordenamientoShellsort(copiaVector14);
+				MetodosOrdenamiento.mostarVector(copiaVector14);
+				System.out.println("*************Arreglo con 100,000 datos************");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector15);
+				MetodosOrdenamiento.ordenamientoShellsort(copiaVector15);
+				MetodosOrdenamiento.mostarVector(copiaVector15);
+				System.out.println("*************Arreglo con 1,000,000 datos************");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector16);
+				MetodosOrdenamiento.ordenamientoShellsort(copiaVector16);
+				MetodosOrdenamiento.mostarVector(copiaVector16);			
+			break;
+			
+			case 5: 
+				int [] copiaVector17=arregloDesordenado1.clone();
+				int [] copiaVector18=arregloDesordenado2.clone();
+				int [] copiaVector19=arregloDesordenado3.clone();
+				int [] copiaVector20=arregloDesordenado4.clone();
+				System.out.println("\n==================ORDENAMIENTO QUICKSORT====================");
+				System.out.println("*************Arreglo con 1,000 datos************");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector17);
+				long tInicio=System.nanoTime();
+				MetodosOrdenamiento.ordenamientoQuickSort(copiaVector17,0,copiaVector17.length-1);
+				long tFin=System.nanoTime();
+				double milliseconds = (tFin-tInicio) / 1000000.0;
+		 		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+				MetodosOrdenamiento.mostarVector(copiaVector17);
+				tInicio=tFin=0;
+				System.out.println("*************Arreglo con 10,000 datos************");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector18);
+				tInicio=System.nanoTime();
+				MetodosOrdenamiento.ordenamientoQuickSort(copiaVector18,0, copiaVector18.length-1);
+				tFin=System.nanoTime();
+				milliseconds = (tFin-tInicio) / 1000000.0;
+				MetodosOrdenamiento.mostarVector(copiaVector18);
+				tInicio=tFin=0;
+				System.out.println("*************Arreglo con 100,000 datos************");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector19);
+				tInicio=System.nanoTime();
+				MetodosOrdenamiento.ordenamientoQuickSort(copiaVector19,0, copiaVector19.length-1);
+				tFin=System.nanoTime();
+				milliseconds = (tFin-tInicio) / 1000000.0;
+				MetodosOrdenamiento.mostarVector(copiaVector19);
+				tInicio=tFin=0;
+				System.out.println("*************Arreglo con 1,000,000 datos************");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector20);
+				tInicio=System.nanoTime();
+				MetodosOrdenamiento.ordenamientoQuickSort(copiaVector20, 0, copiaVector20.length-1);
+				tFin=System.nanoTime();
+				milliseconds = (tFin-tInicio) / 1000000.0;
+				MetodosOrdenamiento.mostarVector(copiaVector20);
+				tInicio=tFin=0;
+				break;
+				
+			case 6:
+				int [] copiaVector21=arregloDesordenado1.clone();
+				int [] copiaVector22=arregloDesordenado2.clone();
+				int [] copiaVector23=arregloDesordenado3.clone();
+				int [] copiaVector24=arregloDesordenado4.clone();
+				System.out.println("\n==================ORDENAMIENTO RADIXSORT====================");
+				System.out.println("*************Arreglo con 1,000 datos************");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector21);
+				MetodosOrdenamiento.ordenamientoRadixSort(copiaVector21);
+				MetodosOrdenamiento.mostarVector(copiaVector21);
+				System.out.println("*************Arreglo con 10,000 datos************");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector22);
+				MetodosOrdenamiento.ordenamientoRadixSort(copiaVector22);
+				MetodosOrdenamiento.mostarVector(copiaVector22);
+				System.out.println("*************Arreglo con 100,000 datos************");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector23);
+				MetodosOrdenamiento.ordenamientoRadixSort(copiaVector23);
+				MetodosOrdenamiento.mostarVector(copiaVector23);
+				System.out.println("*************Arreglo con 1,000,000 datos************");
+				System.out.print("Vector original: ");
+				MetodosOrdenamiento.mostarVector(copiaVector24);
+				MetodosOrdenamiento.ordenamientoRadixSort(copiaVector24);
+				MetodosOrdenamiento.mostarVector(copiaVector24);
+				break;
+			
+			case 7:break;
 			default: System.out.println("Opcion incorrecta!!");
 			}
-		}while(menu!=4);
+		}while(menu!=7);
 		entrada.close();
 	}
 
