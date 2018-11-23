@@ -168,6 +168,39 @@ public static void ordenamientoBurbuja3(int[] numeros) {
  		System.out.println("Comparaciones: "+comparaciones);
 	}//metodo insercionDirecta
 	
+	public static void ordenamientoShellsort(int []numeros) {
+		int salto,aux,i;
+		boolean cambios;
+		long tInicio,tFin;
+		int recorridos=0, intercambios=0,comparaciones=0;
+		tInicio=System.nanoTime();
+		for(salto=numeros.length/2;salto !=0; salto/=2) {
+			cambios=true;
+			while(cambios) {
+				cambios=false;
+				for(i=salto; i<numeros.length;i++) {
+					comparaciones++;
+					if(numeros[i-salto]>numeros[i]) {
+						aux=numeros[i];
+						numeros[i]=numeros[i-salto];
+						numeros[i-salto]=aux;
+						cambios=true;
+						intercambios++;
+					}
+					recorridos++;
+				}
+			}
+		}
+		tFin=System.nanoTime();
+		double milliseconds = (tFin-tInicio) / 1000000.0;
+ 		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+ 		System.out.println("Recorridos: "+recorridos);
+ 		System.out.println("Intercambios: "+intercambios);
+ 		System.out.println("Comparaciones: "+comparaciones);
+	} //OrdenamientoShellsort
+	
+	
+	
 	public static void mostarVector(int numeros[]) {
 		System.out.println(Arrays.toString(numeros));
 	}//metodo mostrarVector
