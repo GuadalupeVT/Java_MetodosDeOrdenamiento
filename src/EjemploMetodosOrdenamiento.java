@@ -226,7 +226,49 @@ public static void ordenamientoBurbuja3(int[] numeros) {
 			ordenamientoQuickSort(numeros, j+1, ultimo);
 		}
 	}//Metodo ordenamientoQuickSort
-	
+	public static void ordenamientoRadixSort(int[] arr) {
+		long tInicio,tFin;
+		int recorridos=0, intercambios=0,comparaciones=0;
+		tInicio=System.nanoTime();
+		if(arr.length==0) 
+			return;
+		int [][] np =new int [arr.length][2];
+		int [] q = new int [0x100];
+		int i=0,j,k,l,f=0;
+		for (k=0; k<4; k++) 
+			for(i=0;i<(np.length-1);i++)
+				np[i][1]=i+1;
+		    np[i][1]=-1;
+		    for(i=0; i<q.length;i++)
+		    	q[i]=-1;
+		    for(f=i=0;i<arr.length;i++) {
+		    	j=((0xFF<<(k<<3))&arr[i])>>(k<<3);
+		    	comparaciones++;
+		    	if(q[j]==-1)
+		    		l=q[j]=f;
+		    	else {
+		    		l=q[j];
+		    		while(np[l][1]!=-1)
+		    			l=np[l][1];
+		    		np[l][1]=f;
+		    		l=np[l][1];
+		    		intercambios++;
+		    	}
+		    	f=np[f][1];
+		    	np[l][0]=arr[i];
+		    	np[l][1]=-1;
+		    	recorridos++;
+		    }
+		    for(l=q[i=j=0];i<0x100;i++)
+		    	for(l=q[i];l!=-1;l=np[l][1])
+		    		arr[j++]=np[l][0];
+		    tFin=System.nanoTime();
+			double milliseconds = (tFin-tInicio) / 1000000.0;
+	 		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+	 		System.out.println("Recorridos: "+recorridos);
+	 		System.out.println("Intercambios: "+intercambios);
+	 		System.out.println("Comparaciones: "+comparaciones);
+	}//OrdenamientoRadix
 	
 	
 	public static void mostarVector(int numeros[]) {
