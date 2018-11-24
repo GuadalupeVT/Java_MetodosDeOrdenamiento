@@ -168,6 +168,10 @@ public static void ordenamientoBurbuja3(int[] numeros) {
  		System.out.println("Comparaciones: "+comparaciones);
 	}//metodo insercionDirecta
 	
+	public static void mostarVector(int numeros[]) {
+		System.out.println(Arrays.toString(numeros));
+	}//metodo mostrarVector
+	
 	public static void ordenamientoShellsort(int []numeros) {
 		int salto,aux,i;
 		boolean cambios;
@@ -226,6 +230,7 @@ public static void ordenamientoBurbuja3(int[] numeros) {
 			ordenamientoQuickSort(numeros, j+1, ultimo);
 		}
 	}//Metodo ordenamientoQuickSort
+	
 	public static void ordenamientoRadixSort(int[] arr) {
 		long tInicio,tFin;
 		int recorridos=0, intercambios=0,comparaciones=0;
@@ -270,11 +275,6 @@ public static void ordenamientoBurbuja3(int[] numeros) {
 	 		System.out.println("Comparaciones: "+comparaciones);
 	}//OrdenamientoRadix
 	
-	
-	public static void mostarVector(int numeros[]) {
-		System.out.println(Arrays.toString(numeros));
-	}//metodo mostrarVector
-	
 }//MetodosOrdenamiento 
 
 public class EjemploMetodosOrdenamiento {
@@ -299,7 +299,7 @@ public class EjemploMetodosOrdenamiento {
 		for(int i=0; i<arregloDesordenado4.length; i++) {
 			arregloDesordenado4[i]=numeroAleatorio.nextInt(100);
 		}
-		
+		//PRUEBAS
 		do {
 			System.out.println("------------------Menu------------------");
 			System.out.println("1. Ordenamiento Burbuja");
