@@ -816,7 +816,11 @@ public class EjemploMetodosOrdenamiento {
 				MetodosOrdenamiento.ordenamientoRadixSort(copiaVector24);
 				MetodosOrdenamiento.mostarVector(copiaVector24);
 				break;
-			
+			case 7:
+				System.out.println("\n==================ORDENAMIENTO EXTERNO INTERCALACIÓN====================");
+			    MetodosOrdenamiento.ordenamientoIntercalacion();
+			    break;
+			    
 			case 10:break;
 			default: System.out.println("Opcion incorrecta!!");
 			}
