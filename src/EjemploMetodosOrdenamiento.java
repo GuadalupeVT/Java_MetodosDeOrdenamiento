@@ -838,6 +838,12 @@ public class EjemploMetodosOrdenamiento {
 				}catch (IOException ie) {
 					System.out.println(ie.getMessage());
 				}break;
+			case 9:
+				System.out.println("\n==================MEZCLA NATURAL====================");
+				MetodosOrdenamiento.mostrar(MetodosOrdenamiento.lectura());
+				System.out.println("");
+				MetodosOrdenamiento.ordenamientoMezclaNatural(MetodosOrdenamiento.lectura());
+				break;
 			case 10:break;
 			default: System.out.println("Opcion incorrecta!!");
 			}
