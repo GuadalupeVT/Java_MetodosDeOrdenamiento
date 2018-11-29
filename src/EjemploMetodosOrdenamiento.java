@@ -1,4 +1,13 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -274,6 +283,112 @@ public static void ordenamientoBurbuja3(int[] numeros) {
 	 		System.out.println("Intercambios: "+intercambios);
 	 		System.out.println("Comparaciones: "+comparaciones);
 	}//OrdenamientoRadix
+	
+	public static void ordenamientoIntercalacion(){
+		File archivo1=new File("./src/Archivo1.txt");
+		File archivo2=new File("./src/Archivo2.txt");
+		
+		FileReader frA1=null;
+		BufferedReader brA1;
+		FileReader frA2=null;
+		BufferedReader brA2;
+		
+		FileWriter archivo3=null;
+		PrintWriter pr=null;
+		
+		try {//Apertura del archivo para escritura
+			archivo3=new FileWriter("./src/ArchivoSalida.txt",false);
+			pr=new PrintWriter(archivo3);
+			
+			try {//Apertura del archivo1 para lectura
+				frA1=new FileReader(archivo1);
+				brA1=new BufferedReader(frA1);
+				String lineaArchivo1;
+				
+				try {//Apertura del archivo2 para lectura
+					frA2=new FileReader(archivo2);
+					brA2=new BufferedReader(frA2);
+					String lineaArchivo2;
+					boolean repetir=true;
+					
+					lineaArchivo1=brA1.readLine();
+					lineaArchivo2=brA2.readLine();
+					
+					do {//Se realizan comparaciones mientras la bandera no cambie
+						if(Integer.parseInt(lineaArchivo1)<Integer.parseInt(lineaArchivo2)) {
+							pr.println(lineaArchivo1);
+							if((lineaArchivo1=brA1.readLine())==null) {
+								pr.println(lineaArchivo2);
+								while((lineaArchivo2=brA2.readLine())!=null) {
+									pr.println(lineaArchivo1);
+								}
+								repetir=false;
+							}
+						}
+						else if (Integer.parseInt(lineaArchivo1)>Integer.parseInt(lineaArchivo2)) {
+							pr.println(lineaArchivo2);
+							if((lineaArchivo2=brA2.readLine())==null) {
+								pr.println(lineaArchivo1);
+								while ((lineaArchivo1=brA1.readLine())!=null) {
+									pr.println(lineaArchivo1);
+								}
+								repetir=false;
+							}
+						}
+						else {
+							pr.println(lineaArchivo1);
+							pr.println(lineaArchivo2);
+							if((lineaArchivo1=brA1.readLine())==null){
+								pr.println(lineaArchivo2);
+								while((lineaArchivo2=brA2.readLine())!=null) {
+									pr.println(lineaArchivo2);
+								}
+								repetir=false;
+							}
+							if((lineaArchivo2=brA2.readLine())==null) {
+								pr.println(lineaArchivo1);
+								while((lineaArchivo1=brA1.readLine())!=null) {
+									pr.println(lineaArchivo1);
+								}
+								repetir=false;
+							}
+						}
+					}while(repetir);
+				}catch (FileNotFoundException e) {
+					System.out.println("Error al abrir el archivo");
+					//e.printStackTrace();
+				}catch (IOException e) {
+					e.printStackTrace();
+				}finally {
+					try {
+						frA2.close();
+					}catch(IOException e) {
+						System.out.println("Error al cerrar el archivo");
+					}
+				}//Final del archivo2
+			}catch (FileNotFoundException e) {
+				System.out.println("Error al abrir el archivo");
+				//e.printStackTrace();
+			}catch (IOException e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					frA1.close();
+				}catch (IOException e) {
+					System.out.println("Error al cerrar el archivo");
+				}
+			}//Final del archivo1
+			System.out.println("Archivos combinados y ordenados correctamente");
+		}catch (IOException e ) {
+			System.out.println("Error al abrir o crear el archivo");
+		}finally {
+			try {
+				archivo3.close();
+			}catch(IOException e) {
+				System.out.println("Error al cerrar el archivo");
+			}
+		} //Final del archivo3
+	}//Intercalacion de archivos
 	
 }//MetodosOrdenamiento 
 
