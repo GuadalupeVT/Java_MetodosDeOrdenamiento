@@ -820,7 +820,24 @@ public class EjemploMetodosOrdenamiento {
 				System.out.println("\n==================ORDENAMIENTO EXTERNO INTERCALACIÓN====================");
 			    MetodosOrdenamiento.ordenamientoIntercalacion();
 			    break;
-			    
+			case 8:
+				System.out.println("\n==================MEZCLA DIRECTA====================");
+				try {
+					BufferedReader br = new BufferedReader(new FileReader("./src/task.txt"));
+					List <Integer> lines = new ArrayList <Integer>();
+					String line;
+					while ((line=br.readLine())!=null) {
+						lines.add(Integer.parseInt(line));
+					}
+					br.close();
+					Integer[] inputArray = lines.toArray(new Integer[lines.size()]);
+					MetodosOrdenamiento.mergeSort(inputArray, 0, inputArray.length-1);
+					for(Integer i : inputArray) {
+						System.out.println(i);
+					}
+				}catch (IOException ie) {
+					System.out.println(ie.getMessage());
+				}break;
 			case 10:break;
 			default: System.out.println("Opcion incorrecta!!");
 			}
