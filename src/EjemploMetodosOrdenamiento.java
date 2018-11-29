@@ -551,7 +551,11 @@ public class EjemploMetodosOrdenamiento {
 			System.out.println("4. Ordenamiento Shellshort");
 			System.out.println("5. Ordenamiento Quicksort");
 			System.out.println("6. Ordenamiento Radixsort");
-			System.out.println("7. Salir");
+			System.out.println("********* Ordenamiento externo *********");
+			System.out.println("7. Intercalacion de archivos");
+			System.out.println("8. Mezcla Directa");
+			System.out.println("9. Mezcla Natural");
+			System.out.println("10. Salir");
 			menu=entrada.nextByte();
 			switch(menu) {
 			case 1:
@@ -813,10 +817,10 @@ public class EjemploMetodosOrdenamiento {
 				MetodosOrdenamiento.mostarVector(copiaVector24);
 				break;
 			
-			case 7:break;
+			case 10:break;
 			default: System.out.println("Opcion incorrecta!!");
 			}
-		}while(menu!=7);
+		}while(menu!=10);
 		entrada.close();
 	}
 
