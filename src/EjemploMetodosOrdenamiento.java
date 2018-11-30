@@ -555,7 +555,8 @@ public class EjemploMetodosOrdenamiento {
 			System.out.println("7. Intercalacion de archivos");
 			System.out.println("8. Mezcla Directa");
 			System.out.println("9. Mezcla Natural");
-			System.out.println("10. Salir");
+			System.out.println("10. Mostrar tabla de comparación de resultados");
+			System.out.println("11. Salir");
 			menu=entrada.nextByte();
 			switch(menu) {
 			case 1:
@@ -844,10 +845,43 @@ public class EjemploMetodosOrdenamiento {
 				System.out.println("");
 				MetodosOrdenamiento.ordenamientoMezclaNatural(MetodosOrdenamiento.lectura());
 				break;
-			case 10:break;
+			case 10:
+				System.out.println("1.Ordenamiento interno");
+				System.out.println("2.Ordenamiento externo");
+				byte op=entrada.nextByte();
+				if(op==1) {
+				   System.out.println("---Pruebas con 100 datos---");
+				   System.out.println("Arreglo original: ");
+				   MetodosOrdenamiento.mostarVector(arregloDesordenado1.clone());
+				   System.out.println("*************Burbuja0**************");
+				   MetodosOrdenamiento.ordenamientoBurbuja0(arregloDesordenado1.clone());
+				   System.out.println("*************Burbuja1**************");
+					MetodosOrdenamiento.ordenamientoBurbuja1(arregloDesordenado1.clone());
+					System.out.println("*************Burbuja2**************");
+					MetodosOrdenamiento.ordenamientoBurbuja2(arregloDesordenado1.clone());
+					System.out.println("*************Burbuja3**************");
+					MetodosOrdenamiento.ordenamientoBurbuja3(arregloDesordenado1.clone());
+					System.out.println("*************Seleccion**************");
+					MetodosOrdenamiento.ordenamientoPorSeleccion(arregloDesordenado1.clone());
+					System.out.println("*************Insercion**************");
+					MetodosOrdenamiento.insercionDirecta(arregloDesordenado1.clone());
+					System.out.println("*************ShellSort**************");
+					MetodosOrdenamiento.ordenamientoShellsort(arregloDesordenado1.clone());
+					System.out.println("*************QuickSort**************");
+					long tIni=System.nanoTime();
+					MetodosOrdenamiento.ordenamientoQuickSort(arregloDesordenado1.clone(),0,arregloDesordenado1.clone().length-1);
+					long tFi=System.nanoTime();
+					double millisecond = (tFi-tIni) / 1000000.0;
+			 		System.out.println("-----Tiempo de procesamineto: "+(millisecond));
+			 		System.out.println("*************Radix**************");
+					MetodosOrdenamiento.ordenamientoRadixSort(arregloDesordenado1.clone());
+					
+					
+				}break;
+			case 11:break;
 			default: System.out.println("Opcion incorrecta!!");
 			}
-		}while(menu!=10);
+		}while(menu!=11);
 		entrada.close();
 	}
 
