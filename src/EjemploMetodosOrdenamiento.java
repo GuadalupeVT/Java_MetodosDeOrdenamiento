@@ -30,7 +30,7 @@ class MetodosOrdenamiento{
         }
 		tFin=System.nanoTime();
 		double milliseconds = (tFin-tInicio) / 1000000.0;
-		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+		System.out.println("-----Tiempo de procesamiento: "+(milliseconds));
 		System.out.println("Recorridos: "+recorridos);
 		System.out.println("Intercambios: "+intercambios);
 		System.out.println("Comparaciones: "+comparaciones);
@@ -54,7 +54,7 @@ class MetodosOrdenamiento{
 		}
 		tFin=System.nanoTime();
 		double milliseconds = (tFin-tInicio) / 1000000.0;
-		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+		System.out.println("-----Tiempo de procesamiento: "+(milliseconds));
 		System.out.println("Recorridos: "+recorridos);
 		System.out.println("Intercambios: "+intercambios);
 		System.out.println("Comparaciones: "+comparaciones);
@@ -83,7 +83,7 @@ class MetodosOrdenamiento{
 		}
 		tFin=System.nanoTime();
 		double milliseconds = (tFin-tInicio) / 1000000.0;
-		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+		System.out.println("-----Tiempo de procesamiento: "+(milliseconds));
 		System.out.println("Recorridos: "+recorridos);
 		System.out.println("Intercambios: "+intercambios);
 		System.out.println("Comparaciones: "+comparaciones);
@@ -114,7 +114,7 @@ public static void ordenamientoBurbuja3(int[] numeros) {
 		} while( (i < numeros.length) && (ordenado == true) );
 		 tFin=System.nanoTime();
 		double milliseconds = (tFin-tInicio) / 1000000.0;
- 		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+ 		System.out.println("-----Tiempo de procesamiento: "+(milliseconds));
  		System.out.println("Recorridos: "+recorridos);
  		System.out.println("Intercambios: "+intercambios);
  		System.out.println("Comparaciones: "+comparaciones);
@@ -146,7 +146,7 @@ public static void ordenamientoBurbuja3(int[] numeros) {
          }
          tFin=System.nanoTime();
  		double milliseconds = (tFin-tInicio) / 1000000.0;
- 		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+ 		System.out.println("-----Tiempo de procesamiento: "+(milliseconds));
  		System.out.println("Recorridos: "+recorridos);
  		System.out.println("Intercambios: "+intercambios);
  		System.out.println("Comparaciones: "+comparaciones);
@@ -171,7 +171,7 @@ public static void ordenamientoBurbuja3(int[] numeros) {
 		}
 		tFin=System.nanoTime();
  		double milliseconds = (tFin-tInicio) / 1000000.0;
- 		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+ 		System.out.println("-----Tiempo de procesamiento: "+(milliseconds));
  		System.out.println("Recorridos: "+recorridos);
  		System.out.println("Intercambios: "+intercambios);
  		System.out.println("Comparaciones: "+comparaciones);
@@ -206,7 +206,7 @@ public static void ordenamientoBurbuja3(int[] numeros) {
 		}
 		tFin=System.nanoTime();
 		double milliseconds = (tFin-tInicio) / 1000000.0;
- 		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+ 		System.out.println("-----Tiempo de procesamiento: "+(milliseconds));
  		System.out.println("Recorridos: "+recorridos);
  		System.out.println("Intercambios: "+intercambios);
  		System.out.println("Comparaciones: "+comparaciones);
@@ -278,13 +278,14 @@ public static void ordenamientoBurbuja3(int[] numeros) {
 		    		arr[j++]=np[l][0];
 		    tFin=System.nanoTime();
 			double milliseconds = (tFin-tInicio) / 1000000.0;
-	 		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+	 		System.out.println("-----Tiempo de procesamiento: "+(milliseconds));
 	 		System.out.println("Recorridos: "+recorridos);
 	 		System.out.println("Intercambios: "+intercambios);
 	 		System.out.println("Comparaciones: "+comparaciones);
 	}//OrdenamientoRadix
 	
 	public static void ordenamientoIntercalacion(){
+		int intercambios=0,recorridos=0,comparaciones=0;
 		File archivo1=new File("./src/Archivo1.txt");
 		File archivo2=new File("./src/Archivo2.txt");
 		
@@ -295,7 +296,7 @@ public static void ordenamientoBurbuja3(int[] numeros) {
 		
 		FileWriter archivo3=null;
 		PrintWriter pr=null;
-		
+		long tInicio=System.nanoTime();
 		try {//Apertura del archivo para escritura
 			archivo3=new FileWriter("./src/ArchivoSalida.txt",false);
 			pr=new PrintWriter(archivo3);
@@ -315,17 +316,20 @@ public static void ordenamientoBurbuja3(int[] numeros) {
 					lineaArchivo2=brA2.readLine();
 					
 					do {//Se realizan comparaciones mientras la bandera no cambie
+						comparaciones++;
 						if(Integer.parseInt(lineaArchivo1)<Integer.parseInt(lineaArchivo2)) {
 							pr.println(lineaArchivo1);
 							if((lineaArchivo1=brA1.readLine())==null) {
 								pr.println(lineaArchivo2);
 								while((lineaArchivo2=brA2.readLine())!=null) {
+									intercambios++;
 									pr.println(lineaArchivo1);
 								}
 								repetir=false;
 							}
 						}
 						else if (Integer.parseInt(lineaArchivo1)>Integer.parseInt(lineaArchivo2)) {
+							comparaciones++;
 							pr.println(lineaArchivo2);
 							if((lineaArchivo2=brA2.readLine())==null) {
 								pr.println(lineaArchivo1);
@@ -353,6 +357,7 @@ public static void ordenamientoBurbuja3(int[] numeros) {
 								repetir=false;
 							}
 						}
+						recorridos++;
 					}while(repetir);
 				}catch (FileNotFoundException e) {
 					System.out.println("Error al abrir el archivo");
@@ -388,6 +393,12 @@ public static void ordenamientoBurbuja3(int[] numeros) {
 				System.out.println("Error al cerrar el archivo");
 			}
 		} //Final del archivo3
+		    long tFin=System.nanoTime();
+			double milliseconds = (tFin-tInicio) / 1000000.0;
+	 		System.out.println("-----Tiempo de procesamiento: "+(milliseconds));
+	 		System.out.println("Recorridos: "+recorridos);
+	 		System.out.println("Intercambios: "+intercambios);
+	 		System.out.println("Comparaciones: "+comparaciones);
 	}//Intercalacion de archivos
 	public static void mergeSort(Integer[]array, int lo, int n) {
 		int low = lo;
@@ -758,7 +769,7 @@ public class EjemploMetodosOrdenamiento {
 				MetodosOrdenamiento.ordenamientoQuickSort(copiaVector17,0,copiaVector17.length-1);
 				long tFin=System.nanoTime();
 				double milliseconds = (tFin-tInicio) / 1000000.0;
-		 		System.out.println("-----Tiempo de procesamineto: "+(milliseconds));
+		 		System.out.println("-----Tiempo de procesamiento: "+(milliseconds));
 				MetodosOrdenamiento.mostarVector(copiaVector17);
 				tInicio=tFin=0;
 				System.out.println("*************Arreglo con 10,000 datos************");
@@ -872,12 +883,48 @@ public class EjemploMetodosOrdenamiento {
 					MetodosOrdenamiento.ordenamientoQuickSort(arregloDesordenado1.clone(),0,arregloDesordenado1.clone().length-1);
 					long tFi=System.nanoTime();
 					double millisecond = (tFi-tIni) / 1000000.0;
-			 		System.out.println("-----Tiempo de procesamineto: "+(millisecond));
+			 		System.out.println("-----Tiempo de procesamiento: "+(millisecond));
 			 		System.out.println("*************Radix**************");
-					MetodosOrdenamiento.ordenamientoRadixSort(arregloDesordenado1.clone());
-					
-					
-				}break;
+					MetodosOrdenamiento.ordenamientoRadixSort(arregloDesordenado1.clone());	
+				}else if(op==2) {
+					tInicio=0;
+					tFin=0;
+					 System.out.println("---Pruebas con 100 datos---");
+					 System.out.println("Arreglo original: ");
+					 MetodosOrdenamiento.mostrar(MetodosOrdenamiento.lectura());
+					 System.out.println("*******Intercalacion***********");
+					 MetodosOrdenamiento.ordenamientoIntercalacion();
+					 System.out.println("********Mezcla directa********");
+					 tInicio=System.nanoTime();
+					 try {
+							BufferedReader br = new BufferedReader(new FileReader("./src/task.txt"));
+							List <Integer> lines = new ArrayList <Integer>();
+							String line;
+							while ((line=br.readLine())!=null) {
+								lines.add(Integer.parseInt(line));
+							}
+							br.close();
+							Integer[] inputArray = lines.toArray(new Integer[lines.size()]);
+							MetodosOrdenamiento.mergeSort(inputArray, 0, inputArray.length-1);
+							for(Integer i : inputArray) {
+								System.out.println(i);
+							}
+						}catch (IOException ie) {
+							System.out.println(ie.getMessage());
+						}
+					 tFin=System.nanoTime();
+					 double millisecond = (tFin-tInicio) / 1000000.0;
+				 	System.out.println("-----Tiempo de procesamiento: "+(millisecond));
+				 	tInicio=0;
+					tFin=0; 
+					System.out.println("************Mezcla natural**********");
+					tInicio=System.nanoTime();
+					MetodosOrdenamiento.ordenamientoMezclaNatural(MetodosOrdenamiento.lectura());
+					 tFin=System.nanoTime();
+					 millisecond = (tFin-tInicio) / 1000000.0;
+				 	System.out.println("\n-----Tiempo de procesamiento: "+(millisecond));
+				}	
+				break;
 			case 11:break;
 			default: System.out.println("Opcion incorrecta!!");
 			}
